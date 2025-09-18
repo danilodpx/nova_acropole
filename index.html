@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise de Insights | Avaliação Turma T51B - Nova Acrópole</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#D8D9DB] text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="bg-[#00453D] text-white p-8 rounded-b-xl shadow-lg mb-12 text-center">
+            <img src="https://acropole.org.br/wp-content/uploads/2025/06/NA_logo_branco_escola-e1749558758358.png" 
+                 alt="Logo Nova Acrópole" 
+                 class="mx-auto h-20 md:h-24 mb-6"
+                 onerror="this.style.display='none'">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-2">Análise de Insights Estratégicos</h1>
+            <p class="text-lg text-gray-300">Visualização dos Resultados da Avaliação da Turma T51B</p>
+        </header>
+
+        <main class="space-y-12">
+            
+            <section id="nps" class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-[#00453D] text-center mb-2">Índice de Recomendação (NPS)</h2>
+                <p class="text-center text-gray-600 max-w-3xl mx-auto mb-6">O Net Promoter Score (NPS) mede a lealdade dos alunos. Um resultado de 90 indica um nível de satisfação e lealdade excecional, colocando a instituição numa classe de excelência mundial e validando a qualidade da experiência oferecida.</p>
+                <div class="chart-container w-full max-w-sm mx-auto h-64 md:h-80">
+                    <canvas id="npsChart"></canvas>
+                </div>
+            </section>
+
+            <section id="professores">
+                <h2 class="text-3xl font-bold text-[#00453D] text-center mb-8">Avaliação do Corpo Docente</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    
+                    <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col">
+                        <h3 class="text-2xl font-bold text-[#00453D] text-center mb-2">Professor de Sociedade: O Padrão de Excelência</h3>
+                        <p class="text-center text-gray-600 mb-6 flex-grow">Este professor representa o modelo de excelência pedagógica da instituição. A sua didática é percebida como um pilar fundamental da experiência positiva do aluno, combinando clareza, relevância e um ambiente de aula positivo.</p>
+                        <div class="chart-container h-80 md:h-96">
+                            <canvas id="professorSociedadeChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col">
+                        <h3 class="text-2xl font-bold text-[#00453D] text-center mb-2">Professor de Ética: Conteúdo Sólido, Oportunidade em Dinamismo</h3>
+                        <p class="text-center text-gray-600 mb-6 flex-grow">O conteúdo é altamente valorizado e considerado relevante. A análise semântica revela uma oportunidade específica de desenvolvimento no dinamismo e no ritmo da apresentação, um ajuste que pode elevar uma performance já muito boa para o nível de excelência.</p>
+                        <div class="chart-container h-80 md:h-96">
+                            <canvas id="professorEticaChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="estrutura" class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-[#00453D] text-center mb-2">Avaliação da Estrutura da Escola</h2>
+                <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">A estrutura física é percebida como um ativo estratégico que comunica os valores de cuidado, organização e harmonia da escola. A satisfação é extremamente alta em todas as áreas, reforçando a base sólida para a experiência de aprendizagem.</p>
+                <div class="chart-container h-96 md:h-[500px] max-h-[500px] max-w-4xl">
+                    <canvas id="estruturaChart"></canvas>
+                </div>
+            </section>
+            
+            <section id="autoavaliacao">
+                 <h2 class="text-3xl font-bold text-[#00453D] text-center mb-8">O Impacto do Curso: Autoavaliação dos Alunos</h2>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-2xl font-bold text-[#00453D] text-center mb-4">Motivação para Aplicação Prática</h3>
+                        <p class="text-center text-gray-600 mb-6">Os alunos sentem-se motivados a aplicar os ensinamentos na sua vida quotidiana, indicando que o curso está a cumprir a sua promessa de ser uma ferramenta de transformação pessoal.</p>
+                        <div class="chart-container h-64">
+                            <canvas id="motivacaoChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+                        <h3 class="text-2xl font-bold text-[#00453D] mb-4">Temas de Maior Impacto</h3>
+                        <p class="text-gray-600 mb-6">Os conceitos que mais ressoam são os que tocam em questões existenciais profundas, validando a relevância do currículo.</p>
+                        <div class="space-y-4">
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <p class="text-lg font-semibold text-[#00453D]">O Mito da Caverna</p>
+                                <p class="text-sm text-gray-500">A busca pela verdade e pelo conhecimento.</p>
+                            </div>
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <p class="text-lg font-semibold text-[#00453D]">A Felicidade em Aristóteles</p>
+                                <p class="text-sm text-gray-500">O florescimento humano e a vida com propósito.</p>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            </section>
+            
+            <section id="sintese" class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-[#00453D] text-center mb-2">Síntese Estratégica e Conclusões</h2>
+                <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">A análise dos dados converge para três conclusões principais que devem orientar as ações futuras da instituição.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                    <div class="border-t-4 border-[#00453D] bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-[#00453D] mb-2">🎯 Excelência como Modelo</h3>
+                        <p class="text-gray-600">A performance do Professor de Sociedade estabelece um modelo de ensino replicável, baseado em didática acessível, relevância prática e um ambiente positivo. Este modelo deve ser documentado e disseminado.</p>
+                    </div>
+                    <div class="border-t-4 border-[#00453D] bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-[#00453D] mb-2">💡 Oportunidade de Calibração</h3>
+                        <p class="text-gray-600">O feedback para o Professor de Ética não aponta uma falha de conteúdo, mas uma oportunidade clara de ajustar o estilo da apresentação. O foco no dinamismo e no ritmo da aula é a principal alavanca para a melhoria.</p>
+                    </div>
+                    <div class="border-t-4 border-[#00453D] bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-[#00453D] mb-2">🚀 Impacto Comprovado</h3>
+                        <p class="text-gray-600">A autoavaliação confirma que o curso tem um impacto transformador, motivando os alunos a aplicar a filosofia no seu dia a dia. A comunicação da escola deve focar-se neste benefício prático e transformacional.</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="text-center mt-12 pt-6 border-t border-gray-300">
+             <img src="https://acropole.org.br/wp-content/uploads/2025/06/cropped-NA_anagrama_branco-300x121.png" 
+                 alt="Anagrama Nova Acrópole" 
+                 class="mx-auto h-10 mb-4"
+                 onerror="this.style.display='none'">
+            <p class="text-sm text-gray-500">Relatório Gerado em Setembro de 2025. Análise baseada em 10 respostas da Turma T51B.</p>
+        </footer>
+
+    </div>
+
+<script>
+    const acropolePalette = ['#00453D', '#006A5C', '#33A595', '#80C2B9', '#D8D9DB'];
+    const newTeacherPalette = ['#FAD232', '#450040', '#faaa31', '#002145'];
+
+    const tooltipTitleCallback = function(tooltipItems) {
+        const item = tooltipItems[0];
+        let label = item.chart.data.labels[item.dataIndex];
+        if (Array.isArray(label)) {
+          return label.join(' ');
+        } else {
+          return label;
+        }
+    };
+
+    const wrapLabel = (label) => {
+        const maxLength = 16;
+        if (label.length <= maxLength) return label;
+        
+        const words = label.split(' ');
+        const lines = [];
+        let currentLine = '';
+
+        words.forEach(word => {
+            if ((currentLine + word).length > maxLength) {
+                lines.push(currentLine.trim());
+                currentLine = '';
+            }
+            currentLine += word + ' ';
+        });
+        lines.push(currentLine.trim());
+        return lines;
+    };
+
+    const charts = {
+        npsChart: () => {
+            const npsScore = 90;
+            const npsCtx = document.getElementById('npsChart').getContext('2d');
+            new Chart(npsCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['NPS Score', 'Restante'],
+                    datasets: [{
+                        data: [npsScore, 100 - npsScore],
+                        backgroundColor: [acropolePalette[0], acropolePalette[4]],
+                        borderColor: ['#ffffff', '#ffffff'],
+                        borderWidth: 4,
+                        circumference: 180,
+                        rotation: 270,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { enabled: false },
+                        title: {
+                            display: true,
+                            text: `${npsScore}`,
+                            position: 'bottom',
+                            padding: { top: -40 },
+                            font: { size: 50, weight: 'bold' },
+                            color: acropolePalette[0]
+                        }
+                    },
+                    cutout: '70%',
+                }
+            });
+        },
+        professorSociedadeChart: () => {
+            const professorSociedadeData = {
+                labels: ['Transmissão de Conteúdo', 'Associação com o Cotidiano', 'Abertura para Perguntas', 'Esclarecimento de Dúvidas', 'Pontualidade', 'Postura e Divulgação', 'Recursos Didáticos'].map(wrapLabel),
+                datasets: [{
+                    label: 'Professor de Sociedade',
+                    data: [4.0, 4.0, 3.9, 4.0, 4.0, 4.0, 3.9],
+                    backgroundColor: 'rgba(250, 210, 50, 0.2)',
+                    borderColor: newTeacherPalette[0],
+                    pointBackgroundColor: newTeacherPalette[0],
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: newTeacherPalette[0]
+                }]
+            };
+            const profSociedadeCtx = document.getElementById('professorSociedadeChart').getContext('2d');
+            new Chart(profSociedadeCtx, {
+                type: 'radar',
+                data: professorSociedadeData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        tooltip: { callbacks: { title: tooltipTitleCallback } },
+                        legend: { labels: { color: '#333' } }
+                    },
+                    scales: {
+                        r: {
+                            angleLines: { color: '#ddd' },
+                            grid: { color: '#ddd' },
+                            pointLabels: { font: { size: 12 }, color: '#333' },
+                            ticks: {
+                                backdropColor: 'transparent',
+                                color: '#666',
+                                stepSize: 1,
+                                font: { size: 10 }
+                            },
+                            min: 0,
+                            max: 4
+                        }
+                    },
+                    elements: { line: { borderWidth: 3 } }
+                }
+            });
+        },
+        professorEticaChart: () => {
+            const professorEticaDataRaw = {
+                labels: ['Transmissão de Conteúdo', 'Associação com o Cotidiano', 'Abertura para Perguntas', 'Esclarecimento de Dúvidas', 'Pontualidade', 'Postura e Divulgação', 'Recursos Didáticos'],
+                data: [3.7, 3.6, 3.5, 3.4, 3.8, 3.8, 3.6]
+            };
+            const professorEticaData = {
+                labels: professorEticaDataRaw.labels.map(wrapLabel),
+                datasets: [{
+                    label: 'Professor de Ética',
+                    data: professorEticaDataRaw.data,
+                    backgroundColor: 'rgba(69, 0, 64, 0.2)',
+                    borderColor: newTeacherPalette[1],
+                    pointBackgroundColor: newTeacherPalette[1],
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: newTeacherPalette[1]
+                }]
+            };
+            const profEticaCtx = document.getElementById('professorEticaChart').getContext('2d');
+            new Chart(profEticaCtx, {
+                type: 'radar',
+                data: professorEticaData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        tooltip: { callbacks: { title: tooltipTitleCallback } },
+                        legend: { labels: { color: '#333' } }
+                    },
+                    scales: {
+                        r: {
+                            angleLines: { color: '#ddd' },
+                            grid: { color: '#ddd' },
+                            pointLabels: { font: { size: 12 }, color: '#333' },
+                            ticks: {
+                                backdropColor: 'transparent',
+                                color: '#666',
+                                stepSize: 1,
+                                font: { size: 10 }
+                            },
+                            min: 0,
+                            max: 4
+                        }
+                    },
+                    elements: { line: { borderWidth: 3 } }
+                }
+            });
+        },
+        estruturaChart: () => {
+            const estruturaLabels = ['Recepção', 'Salas de Aula', 'Banheiros', 'Limpeza Geral', 'Café Sophia', 'Biblioteca'].map(wrapLabel);
+            const estruturaData = {
+                labels: estruturaLabels,
+                datasets: [
+                    {
+                        label: 'Ótimo',
+                        data: [9, 9, 8, 9, 7, 6],
+                        backgroundColor: acropolePalette[0],
+                    },
+                    {
+                        label: 'Bom',
+                        data: [1, 1, 2, 1, 3, 3],
+                        backgroundColor: acropolePalette[1],
+                    },
+                    {
+                        label: 'Regular',
+                        data: [0, 0, 0, 0, 0, 1],
+                        backgroundColor: newTeacherPalette[2],
+                    }
+                ]
+            };
+            const estruturaCtx = document.getElementById('estruturaChart').getContext('2d');
+            new Chart(estruturaCtx, {
+                type: 'bar',
+                data: estruturaData,
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: { display: false },
+                        tooltip: { callbacks: { title: tooltipTitleCallback } },
+                        legend: { position: 'bottom', labels: { color: '#333' } }
+                    },
+                    scales: {
+                        x: {
+                            stacked: true,
+                            grid: { display: false },
+                            ticks: { color: '#666' }
+                        },
+                        y: {
+                            stacked: true,
+                            grid: { display: true, drawOnChartArea: false, color: '#ccc' },
+                            ticks: { color: '#333', font: { size: 12 } }
+                        }
+                    }
+                }
+            });
+        },
+        motivacaoChart: () => {
+            const motivacaoCtx = document.getElementById('motivacaoChart').getContext('2d');
+            new Chart(motivacaoCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Sim', 'Não'],
+                    datasets: [{
+                        data: [10, 0],
+                        backgroundColor: [acropolePalette[0], acropolePalette[4]],
+                        borderColor: '#fff',
+                        borderWidth: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { color: '#333' } },
+                        tooltip: { callbacks: { title: tooltipTitleCallback } },
+                        title: {
+                            display: true,
+                            text: '100%',
+                            position: 'top',
+                            align: 'center',
+                            padding: { top: 80 },
+                            font: { size: 40, weight: 'bold' },
+                            color: acropolePalette[0]
+                        }
+                    },
+                    cutout: '60%'
+                }
+            });
+        },
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const chartId = entry.target.querySelector('canvas').id;
+                if (charts[chartId]) {
+                    charts[chartId]();
+                    observer.unobserve(entry.target);
+                }
+            }
+        });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.chart-container').forEach(container => observer.observe(container));
+
+</script>
+
+</body>
+</html>
+
